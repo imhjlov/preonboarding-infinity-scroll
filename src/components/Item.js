@@ -22,14 +22,13 @@ function Item({ id, email, body }) {
 
 const Container = styled.article`
   width: 500px;
-  
   background: #f8f9fa;
   border: 0.5px solid #ced4da;
   border-radius: 20px;
 
   margin-bottom: 14px;
   padding: 20px;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,7 +36,7 @@ const Container = styled.article`
   div {
     display: flex;
     justify-content: flex-start;
-    
+
     font-size: 18px;
     line-height: 21px;
     margin-bottom: 12px;
@@ -55,14 +54,13 @@ const Container = styled.article`
       display: flex;
       flex-direction: column;
       margin-bottom: 0;
+      padding-top: 2px;
 
-      p {
-        padding-top: 2px;
-        &.title {
-          padding-top: 0;
-        }
+      &.title {
+        padding-top: 0;
       }
     }
+  }
 `;
 
-export default Item;
+export default React.memo(Item);

@@ -21,17 +21,16 @@ const getCommentsFailure = (error) => ({
 });
 
 //* ACTION THUNK - 함수
-export const getCommentThunk =
-  (page = 1) =>
-  async (dispatch) => {
-    dispatch(getComments());
-    try {
-      const { data } = await commentsAPI(page);
-      dispatch(getCommentsSuccess(data));
-    } catch (error) {
-      dispatch(getCommentsFailure(error));
-    }
-  };
+export const getCommentsThunk = () => async (dispatch, getState) => {
+  dispatch(getComments());
+  try {
+    const currentPage = getState().comments.page;
+    const { data } = await commentsAPI(currentPage);
+    dispatch(getCommentsSuccess(data));
+  } catch (error) {
+    dispatch(getCommentsFailure(error));
+  }
+};
 
 //* 초기상태
 const initialState = {
