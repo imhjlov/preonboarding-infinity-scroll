@@ -1,11 +1,11 @@
 import { commentsAPI } from "../api";
 
-//* TYPE
+//* Type
 const GET_COMMENTS = "comment/GET_COMMENTS";
 const GET_COMMENTS_SUCCESS = "comment/GET_COMMENTS_SUCCESS";
 const GET_COMMENTS_FAILURE = "comment/GET_COMMENTS_FAILURE";
 
-//* ACTION 함수
+//* Action Function
 const getComments = () => ({
   type: GET_COMMENTS,
 });
@@ -20,7 +20,7 @@ const getCommentsFailure = (error) => ({
   payload: error,
 });
 
-//* ACTION THUNK - 함수
+//* Action Thunk Function
 export const getCommentsThunk = () => async (dispatch, getState) => {
   dispatch(getComments());
   try {
@@ -32,7 +32,7 @@ export const getCommentsThunk = () => async (dispatch, getState) => {
   }
 };
 
-//* 초기상태
+//* Initial State
 const initialState = {
   page: 1,
   comments: [],
@@ -40,7 +40,7 @@ const initialState = {
   error: null,
 };
 
-//* 리듀서 생성
+//* Reducer
 function comments(state = initialState, action) {
   switch (action.type) {
     case GET_COMMENTS:

@@ -6,7 +6,7 @@ const axios = Axios.create({
 });
 
 //* axios - GET
-//* page, limit값에 따른 comments 불러오는 API 생성
+//* page, limit값에 따른 comments 불러오는 API 함수
 export const commentsAPI = (page = 1, limit = 10) => {
   return axios.get(`/comments`, {
     params: {

@@ -30,7 +30,8 @@ function InfinityScroll({ children }) {
 
   const handleScroll = useCallback(_handleScroll, [_handleScroll]);
 
-  //* scroll event 등록 및 해제
+  //* 마운트 시 scroll event 등록
+  //* 언마운트 시 scroll event 등록
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {

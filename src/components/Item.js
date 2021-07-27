@@ -54,10 +54,12 @@ const Container = styled.article`
       display: flex;
       flex-direction: column;
       margin-bottom: 0;
-      padding-top: 2px;
 
-      &.title {
-        padding-top: 0;
+      p {
+        padding-top: 2px;
+        &.title {
+          padding-top: 0;
+        }
       }
     }
   }
