@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+
+import { useDispatch, useSelector } from "react-redux";
+import { getCommentThunk } from "../reducer/comments";
 
 import Item from "./Item";
 
-function List({ comments }) {
-  console.log(comments && comments[0]);
+function List() {
+  const dispatch = useDispatch();
+  const { comments } = useSelector((state) => state.comments);
+
+  useEffect(() => {
+    dispatch(getCommentThunk());
+  }, [dispatch]);
+
   return (
     <Container>
-      <Item comment={comments && comments[0]} />
+      {comments.map((comment, index) => {
+        // console.log(comment);
+        return <Item key={`comment${index}`} {...comment} />;
+      })}
     </Container>
   );
 }

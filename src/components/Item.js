@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function Item({ comment }) {
-  const { id, email, body } = comment;
+function Item({ id, email, body }) {
   return (
     <Container>
       <div>
